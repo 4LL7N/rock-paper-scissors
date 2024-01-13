@@ -1,12 +1,38 @@
 import { useState } from 'react'
-import './App.css'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Start from './Components/Start'
+import Layout from './Components/Layout'
+import { Mycontext } from './Components/Context'
+import Game from './Components/Game'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [game, setGame] = useState<boolean>(true)
+
+  const router = createBrowserRouter([
+    {
+      path:"/",
+      element:<Layout/>,
+      children:[
+        {
+          path:"rock-paper-scissiors",
+          element:<Start/>
+        },
+        {
+          path:":game",
+          element:<Game/>
+        }
+      ]
+    }
+  ])
 
   return (
     <>
-      
+    <Mycontext.Provider value={{
+      game,
+      setGame
+    }} >
+      <RouterProvider  router={router} />
+    </Mycontext.Provider>
     </>
   )
 }
