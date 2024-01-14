@@ -1,8 +1,21 @@
 import { createContext, useContext } from "react";
 
+type move =  [string,string]
+  
+  type Moves = {
+    [key:number]:move
+  }
+
 interface IntContext{
     game:boolean
-    setGame:(Game:boolean) => void
+    setGame:(Game:boolean) => void,
+    choice:number,
+    setChoice:(choice:number) =>  void,
+    moves:Moves,
+    rules:boolean,
+    setRules:(rules:boolean) => void,
+    score:number,
+    setScore:(score:number) =>  void
 }
 
 export const Mycontext = createContext<IntContext|null>(null)
