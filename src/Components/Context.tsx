@@ -15,7 +15,9 @@ interface IntContext{
     rules:boolean,
     setRules:(rules:boolean) => void,
     score:number,
-    setScore:(score:number) =>  void
+    setScore:(score:number) =>  void,
+    CPU:number,
+    setCPU:(CPU:number) => void
 }
 
 export const Mycontext = createContext<IntContext|null>(null)
