@@ -12,7 +12,8 @@ function Layout() {
     useEffect(() => {
       context?.game?navigate("/rock-paper-scissiors/normla"):navigate("/rock-paper-scissiors/bonus")
     },[])
-
+    console.log(context?.choice);
+    
   return (
     <>
       <div style={context?.choice == 0?{}:{ background: 'radial-gradient(134.34% 134.34% at 50% 0%, #1F3757 0%, #131537 100%)' }} className={` w-[100%] h-[100%] p-[32px]  ${
